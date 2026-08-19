@@ -1,0 +1,8 @@
+Run XAMPP Control Panel
+Strat Apache Server
+Open VS Code and Make or open your folder under Xampp\htdocs
+Make an index.php file, or rename from index.html
+Make header.php, home.php, footer.php
+
+//Header.php
+Open header.php file 

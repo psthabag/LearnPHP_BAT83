@@ -1,0 +1,4 @@
+STU1001||Rajan Niraula||24||123456
+STU1002||John Smith||23||1234321
+STU1003||Sabnam Bhandari||23||432123
+STU1004||Kabita Tiwari||24||321123

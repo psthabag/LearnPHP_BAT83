@@ -1,0 +1,18 @@
+.rds{
+    background:#cafecc;
+    margin:20px;
+    padding:10 20 10 20;
+    border-radius: 15px;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: darkseagreen;
+    color: darkred;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 20px;
+  }
