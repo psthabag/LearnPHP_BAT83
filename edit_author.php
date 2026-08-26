@@ -96,7 +96,7 @@ if (isset($_POST['update_author'])) {
             <div class="full-width">
                 <label>Primary Literary Genre *</label>
                 <select name="genre" required>
-                    <option value="">-- Select Genre --</option>
+                    <option value="<?php echo $author_gerne; ?>"><?php echo $author_gerne; ?></option>
                     
                     <!-- Academic & Educational Textbooks -->
                     <optgroup label="Educational & Textbooks">
@@ -112,8 +112,8 @@ if (isset($_POST['update_author'])) {
 
                     <!-- General Literature -->
                     <optgroup label="General Literature">
-                        <option value="Fiction">General Fiction</option>
-                        <option value="Non-Fiction">General Non-Fiction</option>
+                        <option value="Fiction">Fiction</option>
+                        <option value="Non-Fiction">Non-Fiction</option>
                         <option value="Sci-Fi / Fantasy">Sci-Fi / Fantasy</option>
                         <option value="Mystery / Thriller">Mystery / Thriller</option>
                         <option value="Biography / History">Biography / History</option>
@@ -127,7 +127,9 @@ if (isset($_POST['update_author'])) {
                 <textarea name="author_bio" rows="4" required><?php echo $author_bio; ?></textarea>
             </div>
             <div class="full-width">
-                <label>Author Profile Photo *</label>
+                <?php $img_file="uploads/author/$author_img"; ?>
+                <img src="<?php echo $img_file; ?>" style="width:100px;border:1px solid rgba(128, 128, 128, 0.6);border-radius:8px;"/>
+                <label>Profile Photo *</label>
                 <input type="file" name="author_photo" accept="image/*" required>
             </div>
         </div>
