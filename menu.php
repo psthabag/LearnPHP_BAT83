@@ -32,7 +32,7 @@
           <a class="nav-link" href="index.php?id=file.php">File Handling</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="index.php?id=folder.php">Folder</a>
+          <a class="nav-link" href="index.php?id=students.php">Students</a>
         </li>
       </ul>
     </div>
