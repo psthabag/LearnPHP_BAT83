@@ -27,6 +27,7 @@ if(isset($_POST['submit']))
                 {
                     echo "<div class='alert alert-success'>Data successfully inserted.</div>";
                     header("Refresh:3; url=index.php?id=students.php");
+                    //header("Location:index.php?id=students.php");
                 }
             else
                 {
