@@ -37,8 +37,10 @@
                 <i class="bi bi-pencil-square"></i> 
                 Edit
             </a>
-            <a href="index.php?id=delStudent.php&sid=<?php echo $row[0];?>" 
-            onclick="return confirm('Do you want to delete?');" class="text-danger text-decoration-none">
+            <a href="index.php?id=delStudent.php&sid=
+            <?php echo $row[0];?>" 
+            onclick="return confirm('Do you want to delete?');"
+            class="text-danger text-decoration-none">
                 <i class="bi bi-trash3"></i>
                 Delete
             </a>
