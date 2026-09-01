@@ -12,7 +12,7 @@ include('connect.php');
     <label class="form-label mt-2">Phone</label>
     <input type="text" name="std_phone" class="form-control" required>
     <label class="form-label mt-2">Image</label>
-    <input type="file" name="student_image" class="form-control" required>
+    <input type="file" name="student_image" class="form-control" accept="image/*">
     <input type="submit" name="submit" class="btn btn-primary mt-3">
 </form>
 <?php
@@ -21,31 +21,50 @@ if(isset($_POST['submit']))
             $name=$_POST['std_name'];
             $add=$_POST['std_add'];
             $phone=$_POST['std_phone'];
-            //echo $name, $add, $phone;
+            $image=$_FILES['student_image']['name'];
 
-            $target_dir = "uploads/";
-            $file_name = basename($_FILES["student_image"]["name"]); 
-            $target_file_path = $target_dir . $file_name;
-
-            if (move_uploaded_file($_FILES["student_image"]["tmp_name"], $target_file_path))
+            if($image!="")
             {
-            $sql="INSERT INTO students(name, address, phone, imagepath) VALUES('$name', '$add', '$phone','$target_file_path')";
-            //echo $sql;
-            $res=mysqli_query($conn,$sql);
-            if($res)
+                $target_dir = "uploads/";
+                $file_name = time()."_".basename($_FILES["student_image"]["name"]); 
+                $target_file_path = $target_dir . $file_name;
+
+                if (move_uploaded_file($_FILES["student_image"]["tmp_name"], $target_file_path))
                 {
-                    echo "<div class='alert alert-success'>Data successfully inserted.</div>";
-                    header("Refresh:3; url=index.php?id=students.php");
-                    //header("Location:index.php?id=students.php");
+                $sql="INSERT INTO students(name, address, phone, imagepath) VALUES('$name', '$add', '$phone','$target_file_path')";
+                //echo $sql;
+                $res=mysqli_query($conn,$sql);
+                if($res)
+                    {
+                        echo "<div class='alert alert-success'>Data successfully inserted.</div>";
+                        header("Refresh:1; url=index.php?id=students.php");
+                        //header("Location:index.php?id=students.php");
+                    }
+                else
+                    {
+                        echo "<div class='alert alert-danger'>Error on data insertion.</div>";
+                    }
                 }
-            else
+                else
                 {
-                    echo "<div class='alert alert-danger'>Error on data insertion.</div>";
+                    echo "Error: Failed to upload the image file to the server folder.";
                 }
             }
             else
             {
-                echo "Error: Failed to upload the image file to the server folder.";
+                $sql="INSERT INTO students(name, address, phone) VALUES('$name', '$add', '$phone')";
+                //echo $sql;
+                $res=mysqli_query($conn,$sql);
+                if($res)
+                    {
+                        echo "<div class='alert alert-success'>Data successfully inserted.</div>";
+                        header("Refresh:1; url=index.php?id=students.php");
+                        //header("Location:index.php?id=students.php");
+                    }
+                else
+                    {
+                        echo "<div class='alert alert-danger'>Error on data insertion.</div>";
+                    }
             }
         }
 ?>

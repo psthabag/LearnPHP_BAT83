@@ -29,12 +29,28 @@
     {
     ?>
     <tr>
-        <td><?php echo $row[0];?></td>
-        <td><img src="<?php echo $row[4];?>" width="50px"/></td>
-        <td><?php echo $row[1];?></td>
-        <td><?php echo $row[2];?></td>
-        <td><?php echo $row[3];?></td>
-        <td>
+        <td class="align-middle">
+            <?php
+                if($row[0]<10)
+                    {
+                        echo "KCP-100";
+                    }
+                elseif($row[0]<100)
+                    {
+                        echo "KCP-10";
+                    }
+                elseif($row[0]<1000)
+                    {
+                        echo "KCP-1";
+                    }
+                echo $row[0];
+            ?>
+        </td>
+        <td class="align-middle"><img src="<?php echo $row[4];?>" width="50px"/></td>
+        <td class="align-middle"><?php echo $row[1];?></td>
+        <td class="align-middle"><?php echo $row[2];?></td>
+        <td class="align-middle"><?php echo $row[3];?></td>
+        <td class="align-middle">
             <a href="index.php?id=editStudent.php&sid=<?php echo $row[0];?>" class="text-decoration-none">
                 <i class="bi bi-pencil-square"></i> 
                 Edit
