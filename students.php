@@ -18,6 +18,7 @@
 <table class="table table-striped">
     <tr>
         <th>StdID</th>
+        <th>Image</th>
         <th>Name</th>
         <th>Address</th>
         <th>Phone</th>
@@ -29,6 +30,7 @@
     ?>
     <tr>
         <td><?php echo $row[0];?></td>
+        <td><img src="<?php echo $row[4];?>" width="50px"/></td>
         <td><?php echo $row[1];?></td>
         <td><?php echo $row[2];?></td>
         <td><?php echo $row[3];?></td>

@@ -29,7 +29,7 @@ if(isset($_POST['submit']))
 
             if (move_uploaded_file($_FILES["student_image"]["tmp_name"], $target_file_path))
             {
-            $sql="INSERT INTO students(name, address, phone,imagepath) VALUES('$name', '$add', '$phone','$target_file_path')";
+            $sql="INSERT INTO students(name, address, phone, imagepath) VALUES('$name', '$add', '$phone','$target_file_path')";
             //echo $sql;
             $res=mysqli_query($conn,$sql);
             if($res)
