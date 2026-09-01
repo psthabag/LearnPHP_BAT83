@@ -1,7 +1,7 @@
 <?php
     include('connect.php');
 
-    $perPage = 8;
+    $perPage = 5;
     $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
     $page = max(1, $page); // Ensure page is at least 1
     $offset = ($page - 1) * $perPage;
@@ -66,14 +66,14 @@
     </tr>
     <?php } ?>
 </table>
-<div class="pagination justify-content-center">
+<div class="pagination justify-content-center align-items-center gap-3">
     <?php if ($page > 1): ?>
-        <a href="?id=students.php&page=<?php echo $page - 1;?>">Previous</a>
+        <a href="?id=students.php&page=<?php echo $page - 1;?>"><span class="btn btn-primary">Previous</span></a>
     <?php endif; ?>
 
     <span>Page <?php echo $page; ?> of <?php echo $totalPages; ?></span>
 
     <?php if ($page < $totalPages): ?>
-        <a href="index.php?id=students.php&page=<?php echo $page + 1; ?>"> Next</a>
+        <a class="align-middle" href="index.php?id=students.php&page=<?php echo $page + 1; ?>"><span class="btn btn-primary">Next</span></a>
     <?php endif; ?>
 </div>
