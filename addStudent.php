@@ -11,6 +11,8 @@ include('connect.php');
     <input type="text" name="std_add" class="form-control" required>
     <label class="form-label mt-2">Phone</label>
     <input type="text" name="std_phone" class="form-control" required>
+    <label class="form-label mt-2">Image</label>
+    <input type="file" name="student_image" class="form-control">
     <input type="submit" name="submit" class="btn btn-primary mt-3">
 </form>
 <?php
@@ -20,7 +22,16 @@ if(isset($_POST['submit']))
             $add=$_POST['std_add'];
             $phone=$_POST['std_phone'];
             //echo $name, $add, $phone;
-            $sql="INSERT INTO students(name, address, phone) VALUES('$name', '$add', '$phone')";
+
+            // File upload settings
+            $target_dir = "uploads/"; // Make sure this folder exists in your directory
+            $file_name = time() . "_" . basename($_FILES["student_image"]["name"]); // Adds timestamp to avoid duplicate names
+            $target_file_path = $target_dir . $file_name;
+
+            // Move file from temporary location to your "uploads" folder
+            if (move_uploaded_file($_FILES["student_image"]["tmp_name"], $target_file_path))
+            {
+            $sql="INSERT INTO students(name, address, phone,imagepath) VALUES('$name', '$add', '$phone','$target_file_path')";
             //echo $sql;
             $res=mysqli_query($conn,$sql);
             if($res)
@@ -33,6 +44,11 @@ if(isset($_POST['submit']))
                 {
                     echo "<div class='alert alert-danger'>Error on data insertion.</div>";
                 }
+            }
+            else
+            {
+                echo "Error: Failed to upload the image file to the server folder.";
+            }
         }
 ?>
 </div>
