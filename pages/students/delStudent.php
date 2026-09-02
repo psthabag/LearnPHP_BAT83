@@ -1,6 +1,6 @@
 <title>Edit Student</title>
 <?php
-include('connect.php');
+include('data/connect.php');
 if(isset($_GET['sid']))
     {
         $sid=$_GET['sid'];

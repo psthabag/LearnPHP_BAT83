@@ -1,5 +1,5 @@
 <?php
-$txt_file = 'authors.txt';
+$txt_file = 'pages/authors/authors.txt';
 $upload_dir = 'uploads/author/';
 
 $line_id = isset($_GET['line_id']) ? (int) $_GET['line_id'] : -1;
@@ -102,11 +102,11 @@ $image_src = htmlspecialchars(
 // URLs
 // ------------------------------------------------------------
 $edit_url =
-    'index.php?id=edit_author.php&line_id=' .
+    'index.php?id=pages/authors/edit_author.php&line_id=' .
     urlencode($line_id);
 
 $delete_url =
-    'index.php?id=delete_author.php&line_id=' .
+    'index.php?id=pages/authors/delete_author.php&line_id=' .
     urlencode($line_id);
 
 ?>

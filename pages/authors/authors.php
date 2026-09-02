@@ -1,6 +1,6 @@
 <?php
 // Define file paths
-$txt_file = 'authors.txt';
+$txt_file = 'pages/authors/authors.txt';
 $upload_dir = 'uploads/author/';
 
 // --- PAGINATION SETTINGS & LOGIC ---
@@ -135,9 +135,9 @@ $displayed_authors = array_slice($all_authors, $start_index, $per_page);
                     $name = htmlspecialchars($data[0]);
                     echo '      <!-- NEW: Action Button Section Inside Card -->';
                     echo '      <div class="card-actions" style="margin-top: 15px; padding-top: 10px; border-top: 1px solid #eee;">';
-                    echo '          <a href="index.php?id=author_detail.php&line_id=' . $line_id . '" class="btn-edit" style="color: #007b00; text-decoration: none; margin-right: 15px; font-weight: bold;">ℹ️ Detail</a>';
-                    echo '          <a href="index.php?id=edit_author.php&line_id=' . $line_id . '" class="btn-edit" style="color: #007bff; text-decoration: none; margin-right: 15px; font-weight: bold;">✏️ Edit</a>';
-                    echo '          <a href="index.php?id=delete_author.php&line_id=' . $line_id . '" class="btn-delete" onclick="return confirm(\'Are you sure you want to delete ' . addslashes($name) . '?\');" style="color: #dc3545; text-decoration: none; font-weight: bold;">🗑️ Delete</a>';
+                    echo '          <a href="index.php?id=pages/authors/author_detail.php&line_id=' . $line_id . '" class="btn-edit" style="color: #007b00; text-decoration: none; margin-right: 15px; font-weight: bold;">ℹ️ Detail</a>';
+                    echo '          <a href="index.php?id=pages/authors/edit_author.php&line_id=' . $line_id . '" class="btn-edit" style="color: #007bff; text-decoration: none; margin-right: 15px; font-weight: bold;">✏️ Edit</a>';
+                    echo '          <a href="index.php?id=pages/authors/delete_author.php&line_id=' . $line_id . '" class="btn-delete" onclick="return confirm(\'Are you sure you want to delete ' . addslashes($name) . '?\');" style="color: #dc3545; text-decoration: none; font-weight: bold;">🗑️ Delete</a>';
                     echo '      </div>';
                     echo '  </div>';
                     echo '</div>';
@@ -157,7 +157,7 @@ $displayed_authors = array_slice($all_authors, $start_index, $per_page);
             
             <!-- Previous Button -->
             <?php if ($current_page > 1): ?>
-                <a href="?id=authors.php&page=<?php echo $current_page - 1; ?>&limit=<?php echo $limit; ?>" style="padding: 8px 12px; background: #fff; border: 1px solid #ced4da; text-decoration: none; color: #007bff; border-radius: 4px;">&laquo; Prev</a>
+                <a href="?id=pages/authors/authors.php&page=<?php echo $current_page - 1; ?>&limit=<?php echo $limit; ?>" style="padding: 8px 12px; background: #fff; border: 1px solid #ced4da; text-decoration: none; color: #007bff; border-radius: 4px;">&laquo; Prev</a>
             <?php endif; ?>
 
             <!-- Numbered Page Links -->
@@ -165,13 +165,13 @@ $displayed_authors = array_slice($all_authors, $start_index, $per_page);
                 <?php if ($i == $current_page): ?>
                     <span style="padding: 8px 12px; background: #007bff; border: 1px solid #007bff; color: white; font-weight: bold; border-radius: 4px;"><?php echo $i; ?></span>
                 <?php else: ?>
-                    <a href="?id=authors.php&page=<?php echo $i; ?>&limit=<?php echo $limit; ?>" style="padding: 8px 12px; background: #fff; border: 1px solid #ced4da; text-decoration: none; color: #007bff; border-radius: 4px;"><?php echo $i; ?></a>
+                    <a href="?id=pages/authors/authors.php&page=<?php echo $i; ?>&limit=<?php echo $limit; ?>" style="padding: 8px 12px; background: #fff; border: 1px solid #ced4da; text-decoration: none; color: #007bff; border-radius: 4px;"><?php echo $i; ?></a>
                 <?php endif; ?>
             <?php endfor; ?>
 
             <!-- Next Button -->
             <?php if ($current_page < $total_pages): ?>
-                <a href="?id=authors.php&page=<?php echo $current_page + 1; ?>&limit=<?php echo $limit; ?>" style="padding: 8px 12px; background: #fff; border: 1px solid #ced4da; text-decoration: none; color: #007bff; border-radius: 4px;">Next &raquo;</a>
+                <a href="?id=pages/authors/authors.php&page=<?php echo $current_page + 1; ?>&limit=<?php echo $limit; ?>" style="padding: 8px 12px; background: #fff; border: 1px solid #ced4da; text-decoration: none; color: #007bff; border-radius: 4px;">Next &raquo;</a>
             <?php endif; ?>
 
         </div>

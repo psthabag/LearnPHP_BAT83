@@ -1,6 +1,6 @@
 <title>Add Student</title>
 <?php
-include('connect.php');
+include('data/connect.php');
 ?>
 <div class="mx-auto">
 <form method="POST" action="#" enctype="multipart/form-data">

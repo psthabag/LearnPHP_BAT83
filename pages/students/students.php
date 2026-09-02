@@ -1,5 +1,5 @@
 <?php
-    include('connect.php');
+    include('data/connect.php');
 
     $perPage = 5;
     $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
@@ -53,15 +53,15 @@
         <td class="align-middle"><?php echo $row[2];?></td>
         <td class="align-middle"><?php echo $row[3];?></td>
         <td class="align-middle">
-            <a href="index.php?id=viewStudent.php&sid=<?php echo $row[0];?>" class="text-decoration-none">
+            <a href="index.php?id=pages/students/viewStudent.php&sid=<?php echo $row[0];?>" class="text-decoration-none">
                 <i class="bi bi-eye"></i> 
                 View
             </a>
-            <a href="index.php?id=editStudent.php&sid=<?php echo $row[0];?>" class="text-decoration-none">
+            <a href="index.php?id=pages/students/editStudent.php&sid=<?php echo $row[0];?>" class="text-decoration-none">
                 <i class="bi bi-pencil-square"></i> 
                 Edit
             </a>
-            <a href="index.php?id=delStudent.php&sid=
+            <a href="index.php?id=pages/students/delStudent.php&sid=
             <?php echo $row[0];?>" 
             onclick="return confirm('Do you want to delete?');"
             class="text-danger text-decoration-none">
@@ -74,12 +74,12 @@
 </table>
 <div class="pagination justify-content-center align-items-center gap-3">
     <?php if ($page > 1): ?>
-        <a href="?id=students.php&page=<?php echo $page - 1;?>"><span class="btn btn-primary">Previous</span></a>
+        <a href="?id=pages/students/students.php&page=<?php echo $page - 1;?>"><span class="btn btn-primary">Previous</span></a>
     <?php endif; ?>
 
     <span>Page <?php echo $page; ?> of <?php echo $totalPages; ?></span>
 
     <?php if ($page < $totalPages): ?>
-        <a class="align-middle" href="index.php?id=students.php&page=<?php echo $page + 1; ?>"><span class="btn btn-primary">Next</span></a>
+        <a class="align-middle" href="index.php?id=pages/students/students.php&page=<?php echo $page + 1; ?>"><span class="btn btn-primary">Next</span></a>
     <?php endif; ?>
 </div>

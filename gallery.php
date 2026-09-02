@@ -1,5 +1,5 @@
 <?php
-include('connect.php');
+include('data/connect.php');
 ?>
 <div>
     <h1>Gallery</h1>

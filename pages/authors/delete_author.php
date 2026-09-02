@@ -1,5 +1,5 @@
 <?php
-$filename = "authors.txt";
+$filename = "pages/authors/authors.txt";
 $upload_dir = 'uploads/author/';
 // 1. Check if the line ID index was sent via URL query parameters
 if (isset($_GET['line_id'])) {
@@ -24,7 +24,7 @@ if (isset($_GET['line_id'])) {
         file_put_contents($filename, implode("\n", $lines) . "\n");
         
         // 4. Successful action redirection route 
-        header("Location: index.php?id=authors.php");
+        header("Location: index.php?id=pages/authors/authors.php");
         exit();
     } else {
         die("Error: The requested author row does not exist.");

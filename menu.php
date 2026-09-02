@@ -23,16 +23,30 @@
           <a class="nav-link" href="index.php?id=about.php">About Us</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="index.php?id=authors.php">Author List</a>
+          <a class="nav-link" href="index.php?id=pages/authors/authors.php">Author List</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="index.php?id=addAuthors.php">Add Author</a>
+          <a class="nav-link" href="index.php?id=pages/authors/addAuthors.php">Add Author</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="index.php?id=file.php">File Handling</a>
+          <a class="nav-link" href="index.php?id=pages/files/file.php">File Handling</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="index.php?id=students.php">Students</a>
+          <a class="nav-link" href="index.php?id=pages/students/students.php">Students</a>
+        </li>
+      </ul>
+
+      <!-- Right-aligned Username (Pushed by ms-auto) -->
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item dropdown">
+            👤Welcome, 
+            <strong>
+              <a href="index.php?id=logout.php" 
+              onclick="return confirm('Do you want to logout?');"
+              class="text-danger text-decoration-none">
+                <?php echo $_SESSION['user']; ?>
+            </a>
+            </strong>
         </li>
       </ul>
     </div>

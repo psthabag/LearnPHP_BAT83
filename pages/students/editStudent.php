@@ -1,6 +1,6 @@
 <title>Edit Student</title>
 <?php
-include('connect.php');
+include('data/connect.php');
 if(isset($_GET['sid']))
     {
         $sid=$_GET['sid'];
@@ -13,7 +13,6 @@ if(isset($_GET['sid']))
         $sPh=$row_Single['phone'];
         $sImg=$row_Single['imagepath'];
     }
-
 ?>
 <div class="mx-auto">
 <body class="bg-light">
@@ -24,6 +23,55 @@ if(isset($_GET['sid']))
         <h1 class="h3 mb-0 text-gray-800">Edit Student Profile</h1>
     </div>
 
+    <?php
+    if(isset($_POST['submit']))
+            {
+                $name=$_POST['std_name'];
+                $add=$_POST['std_add'];
+                $phone=$_POST['std_phone'];
+                $image=$_FILES['student_image']['name'];
+                if($image=="")
+                    {
+                        $sql="UPDATE students SET name='$name', address='$add', phone='$phone' WHERE std_id=$sid";
+                        $res=mysqli_query($conn,$sql);
+                        if($res)
+                            {
+                                echo "<div class='alert alert-success'>Data successfully updated.</div>";
+                                //header("Refresh:2; url=index.php?id=students.php");
+                                header("Location:index.php?id=pages/students/students.php");
+                            }
+                        else
+                            {
+                                echo "<div class='alert alert-danger'>Error on data insertion.</div>";
+                            }
+                    }
+                else
+                    {
+                        $target_dir = "uploads/";
+                        $file_name = time()."_".basename($_FILES["student_image"]["name"]); 
+                        $target_file_path = $target_dir . $file_name;
+
+                        if (move_uploaded_file($_FILES["student_image"]["tmp_name"], $target_file_path))
+                        {
+                            $sql="UPDATE students SET name='$name', address='$add', phone='$phone', imagepath='$target_file_path' WHERE std_id=$sid";
+
+                            $res=mysqli_query($conn,$sql);
+                            if($res)
+                                {
+                                    echo "<div class='alert alert-success'>Data successfully updated.</div>";
+                                    header("Refresh:2; url=index.php?id=pages/students/students.php");
+                                    //header("Location:index.php?id=students.php");
+                                    exit();
+                                }
+                            else
+                                {
+                                    echo "<div class='alert alert-danger'>Error on data insertion.</div>";
+                                }
+                        }
+                    }
+            }
+    ?>
+
     <form method="POST" class="needs-validation" action="#" enctype="multipart/form-data" novalidate>
         <div class="row g-4">
             <!-- Left Column: Profile Picture Management -->
@@ -32,7 +80,7 @@ if(isset($_GET['sid']))
                     <div class="card-body pt-5">
                         <!-- Current Profile Picture -->
                         <div class="mb-4 position-relative d-inline-block">
-                            <img src="<?php echo $sImg;?>" 
+                            <img src="<?php echo $sImg;?>"
                                  alt="Student Profile Picture"
                                  id="imagePreview" 
                                  class="rounded-circle img-thumbnail shadow-sm" 
@@ -142,55 +190,7 @@ if(isset($_GET['sid']))
     </form>
 </div>
 
-<?php
-if(isset($_POST['submit']))
-        {
-            $name=$_POST['std_name'];
-            $add=$_POST['std_add'];
-            $phone=$_POST['std_phone'];
-            $image=$_FILES['student_image']['name'];
-            if($image=="")
-                {
-                    $sql="UPDATE students SET name='$name', address='$add', phone='$phone' WHERE std_id=$sid";
-                    $res=mysqli_query($conn,$sql);
-                    if($res)
-                        {
-                            echo "<div class='alert alert-success'>Data successfully updated.</div>";
-                            //header("Refresh:2; url=index.php?id=students.php");
-                            header("Location:index.php?id=students.php");
-                        }
-                    else
-                        {
-                            echo "<div class='alert alert-danger'>Error on data insertion.</div>";
-                        }
-                }
-            else
-                {
-                    $target_dir = "uploads/";
-                    $file_name = time()."_".basename($_FILES["student_image"]["name"]); 
-                    $target_file_path = $target_dir . $file_name;
-
-                    if (move_uploaded_file($_FILES["student_image"]["tmp_name"], $target_file_path))
-                    {
-                        $sql="UPDATE students SET name='$name', address='$add', phone='$phone', imagepath='$target_file_path' WHERE std_id=$sid";
-
-                        $res=mysqli_query($conn,$sql);
-                        if($res)
-                            {
-                                echo "<div class='alert alert-success'>Data successfully updated.</div>";
-                                //header("Refresh:2; url=index.php?id=students.php");
-                                header("Location:index.php?id=students.php");
-                            }
-                        else
-                            {
-                                echo "<div class='alert alert-danger'>Error on data insertion.</div>";
-                            }
-                    }
-                }
-        }
-?>
 </div>
-
 
 <script>
 document.getElementById('profilePicInput').addEventListener('change', function(event) {

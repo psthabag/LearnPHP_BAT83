@@ -1,6 +1,6 @@
 <?php
 // Define file paths
-$txt_file = 'authors.txt';
+$txt_file = 'pages/authors/authors.txt';
 $upload_dir = 'uploads/author/';
 
 // Create uploads directory if it doesn't exist

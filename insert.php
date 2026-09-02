@@ -1,6 +1,6 @@
 <?php
 // 1. Include your existing database connection file here
-include 'connect.php'; 
+include 'data/connect.php'; 
 
 if (isset($_POST['submit'])) {
     

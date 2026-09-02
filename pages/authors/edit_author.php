@@ -29,7 +29,7 @@
         .bio-text { line-height: 1.6; color: #4a4a4a; margin: 0; font-size: 14px; }
     </style>
 <?php
-$filename = "authors.txt";
+$filename = "pages/authors/authors.txt";
 $upload_dir = 'uploads/author/';
 
 // 1. Fetch current author data based on the line index

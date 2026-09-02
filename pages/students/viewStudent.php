@@ -1,6 +1,6 @@
 <title>Student Detail</title>
 <?php
-include('connect.php');
+include('data/connect.php');
 if(isset($_GET['sid']))
     {
         $sid=$_GET['sid'];
@@ -22,7 +22,7 @@ if(isset($_GET['sid']))
     <!-- Page Header & Navigation Link -->
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h1 class="h3 mb-0 text-gray-800">Student Profile</h1>
-        <a href="?id=students.php" class="btn btn-outline-primary btn-sm">
+        <a href="?id=pages/students/students.php" class="btn btn-outline-primary btn-sm">
             <i class="bi bi-arrow-left"></i> Back to List
         </a>
     </div>
@@ -62,7 +62,7 @@ if(isset($_GET['sid']))
                 </div>
                 <div class="card-footer bg-transparent border-0 pb-4">
                     <div class="d-grid gap-2 mx-auto" style="max-width: 200px;">
-                        <a class="btn btn-primary" type="button" href="?id=editStudent.php&sid=<?php echo $sid;?>">
+                        <a class="btn btn-primary" type="button" href="?id=pages/students/editStudent.php&sid=<?php echo $sid;?>">
                             <i class="bi bi-pencil-square me-2"></i>Edit Profile
                         </a>
                     </div>
