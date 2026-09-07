@@ -2,11 +2,9 @@
 include('data/connect.php');
 ?>
 <div>
-    <h1>Gallery</h1>
-<p>
-    <a href="index.php?id=addImage.php" class="btn btn-primary mb-2">Add Image</a>
-</p>
-
+    <h1>Gallery
+    <a href="index.php?id=addImage.php" class="btn btn-primary btn-sm">Add Image</a>
+    </h1>
   <div class="container-fluid">
   <?php
     $sql="SELECT * FROM gallery";

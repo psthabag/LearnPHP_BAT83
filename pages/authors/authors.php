@@ -76,7 +76,7 @@ $displayed_authors = array_slice($all_authors, $start_index, $per_page);
     </style>
 
 <div class="container">
-    <h2>Author List</h2>
+    <h2>Author List <span><a class="btn btn-primary btn-sm" href="?id=pages/authors/addAuthors.php">Add New</a></span></h2>
     <!-- Limit Selection Controller Bar -->
     <div style="margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; background: #fff; padding: 10px; border-radius: 4px; border: 1px solid #e9ecef;">
         <div>Showing <strong><?php echo count($displayed_authors); ?></strong> of <strong><?php echo $total_authors; ?></strong> Authors</div>

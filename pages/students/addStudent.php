@@ -37,7 +37,7 @@ if(isset($_POST['submit']))
                 if($res)
                     {
                         echo "<div class='alert alert-success'>Data successfully inserted.</div>";
-                        header("Refresh:1; url=index.php?id=students.php");
+                        header("Refresh:1; url=index.php?id=pages/students/students.php");
                         //header("Location:index.php?id=students.php");
                     }
                 else
@@ -58,7 +58,7 @@ if(isset($_POST['submit']))
                 if($res)
                     {
                         echo "<div class='alert alert-success'>Data successfully inserted.</div>";
-                        header("Refresh:1; url=index.php?id=students.php");
+                        header("Refresh:1; url=index.php?id=pages/students/students.php");
                         //header("Location:index.php?id=students.php");
                     }
                 else

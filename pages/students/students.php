@@ -13,8 +13,9 @@
     $sql="SELECT * FROM students LIMIT $offset, $perPage";
     $res=mysqli_query($conn,$sql);
 ?>
-<h1>Students</h1>
-<a href="index.php?id=addStudent.php" class="btn btn-primary mb-2">Add Student</a>
+<h1>Students
+<a href="index.php?id=pages/students/addStudent.php" class="btn btn-primary btn-sm">Add Student</a>
+</h1>
 <table class="table table-striped">
     <tr>
         <th>StdID</th>

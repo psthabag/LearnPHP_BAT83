@@ -21,13 +21,11 @@
         */
 
         $name="Kanya Campus Pokhara";
-        $phone=343434;
+        $phone='061-583456';
 
         echo "<h1>$name</h1>";
         echo "<h2>$phone</h2>";
     ?>
-
-    <h2><?php echo $name?></h2>
 
     <?php
         $x=45;
