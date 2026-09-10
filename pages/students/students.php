@@ -1,7 +1,7 @@
 <?php
     include('data/connect.php');
 
-    $perPage = 5;
+    $perPage = 6;
     $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
     $page = max(1, $page); // Ensure page is at least 1
     $offset = ($page - 1) * $perPage;
